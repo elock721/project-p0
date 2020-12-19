@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml.Serialization;
 using PizzaWorld.Domian.Models;
 
@@ -7,7 +9,9 @@ namespace PizzaWorld.Domian.Singletons
 {
     public class ClientSingleton 
     {   
-        private ClientSingleton _instance;
+        private const string _path = @"./pizzaworld.xml";
+
+        private static ClientSingleton _instance;
 
         public static ClientSingleton Instance 
         {
@@ -15,7 +19,7 @@ namespace PizzaWorld.Domian.Singletons
             {
                 if(_instance == null)
                 {
-                    _isntance = new ClientSingleton(); 
+                    _instance = new ClientSingleton(); 
                 }
                  return _instance; 
             }
@@ -25,28 +29,44 @@ namespace PizzaWorld.Domian.Singletons
 
         private ClientSingleton()
         {
-            Stores = new List<Store>();
-        }
-
-        public void GetAllStores()
-        {
-
+            Read();
         }
 
         public void MakeAStore()
         {
-            var s = new Store();
-            Stores.Add(s);
+            Stores.Add(new Store());
             Save();
+        }
+
+
+        public Store SelectStore()
+        {
+            int.TryParse(Console.ReadLine(), out int input);
+            return Stores.ElementAtOrDefault(input);
         }
 
         private void Save()
         {   
-            string path = @"./pizzaworld.xml";
-            var file = new StreamWriter(path);
+            var file = new StreamWriter(_path);
             var xml = new XmlSerializer(typeof(List<Store>));
 
             xml.Serialize(file, Stores); 
         }
+
+        private void Read()
+        {
+
+            if (!File.Exists(_path))
+            {
+                Stores = new List<Store>();
+                return;
+            }
+            var file = new StreamReader(_path);
+            var xml = new XmlSerializer(typeof(List<Store>));
+
+            // casting 
+            Stores = xml.Deserialize(file) as List<Store>; // null if cannot convert 
+        }
     }
 }
+

@@ -7,21 +7,26 @@ namespace PizzaWorld.Client
 {
     class Program
     {
+
+        private static readonly ClientSingleton _client = ClientSingleton.Instance;
+        private readonly ClientSingleton _client2;
+
+        public Program()
+        {
+            _client2 = ClientSingleton.Instance;
+        }
+    
         static void Main(string[] args)
         {
-            var cs = ClientSingleton.Instance;
-           //PrintAllStores();
+            _client.MakeAStore(); 
 
-            cs.MakeAStore(); 
+            PrintAllStores();
+            System.Console.WriteLine(_client.SelectStore());
 
         }
          static IEnumerable<Store> GetAllStores()
          {
-             return new List<Store>()
-             {
-                new Store(),
-                new Store()
-             };
+           return _client.Stores;  
         }
         static void PrintAllStores()
         {
@@ -29,6 +34,22 @@ namespace PizzaWorld.Client
             {
                 System.Console.WriteLine(store);
             }
+        }
+        static void UserView()
+        {
+            var user = new User(); 
+            
+            PrintAllStores();
+            
+            // user.SelectedStored = _client.SelectStore();
+            // user.SelectedStore.CreateOrder();
+            // user.Orders = user.SelectedStore.Orders.Last(); 
+            //while user.SelectPizza()
+            // user.Orders.Last().MakeMeatPizza();
+            // user.Orders.Last().MakeMeatPizza();
+
+            System.Console.WriteLine(user);
+            
         }
     }
 }

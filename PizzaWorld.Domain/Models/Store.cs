@@ -9,9 +9,9 @@ namespace PizzaWorld.Domian.Models
         
         
         // CRUD
-        void CreateOrder()
+        public void CreateOrder()
         {
-            var O = new Order();
+            // var O = new Order();
             Orders.Add(new Order());
         }
 
