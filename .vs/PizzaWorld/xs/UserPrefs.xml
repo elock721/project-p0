@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{714E2E1F-6205-458E-B8E5-F2C0AEF6CADA}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PizzaWorld.Client/pizzaworld.xml">
+    <Files>
+      <File FileName="PizzaWorld.Client/Program.cs" Line="1" Column="1" />
+      <File FileName="PizzaWorld.Testing/PizzaTests.cs" Line="1" Column="1" />
+      <File FileName="PizzaWorld.Domain/Models/User.cs" Line="12" Column="28" />
+      <File FileName="PizzaWorld.Client/pizzaworld.xml" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="PizzaWorld" expanded="True">
+            <Node name="PizzaWorld.Client" expanded="True">
+              <Node name="pizzaworld.xml" selected="True" />
+            </Node>
+            <Node name="PizzaWorld.Domain" expanded="True">
+              <Node name="Models" expanded="True" />
+            </Node>
+            <Node name="PizzaWorld.Testing" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.PizzaWorld.Client PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
