@@ -1,21 +1,23 @@
-using PizzaWorld.Domian.Models;
+using PizzaWorld.Domain.Models;
 using Xunit;
 
 namespace PizzaWorld.Testing
 {
-    public class OrderTests
+  public class OrderTests
+  {
+    [Fact]
+    private void Test_OrderExists()
     {
-        [Fact]
-        private void Test_OrderExists()
-        {
-            
-            var sut = new Order();
-            Order sut1 = new Order();
+      // arrange
+      var sut = new Order(); // inference
+      Order sut1 = new Order(); // memory allocation
 
-            var actual = sut; 
+      // act
+      var actual = sut;
 
-            Assert.IsType<Order>(actual);
-            Assert.NotNull(actual); 
-        }
+      // assert
+      Assert.IsType<Order>(actual);
+      Assert.NotNull(actual);
     }
+  }
 }

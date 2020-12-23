@@ -1,18 +1,28 @@
 using System.Collections.Generic;
-// using PizzaWorld.Domian.Abstracts;
-// using PizzaWorld.Domian.Factories; 
+using PizzaWorld.Domain.Abstracts;
+using PizzaWorld.Domain.Factories;
 
-namespace PizzaWorld.Domian.Models 
+namespace PizzaWorld.Domain.Models
 {
-    public class Order
+  public class Order
+  {
+    private GenericPizzaFactory _pizzaFactory = new GenericPizzaFactory();
+
+    public List<APizzaModel> Pizzas { get; set; }
+
+    public Order()
     {
-        // private GenericPizzaFactory _pizzaFactory = new GenericPizzaFactory();
-
-        // public List<APizzaModel> Pizzas {get; set; }
-
-        // public void MakeMeatPizza()
-        // {
-        //     Pizzas.Add(_pizzaFactory.Make<MeatPizza>()); 
-        // }
+      Pizzas = new List<APizzaModel>();
     }
+
+    public void MakeMeatPizza()
+    {
+      Pizzas.Add(_pizzaFactory.Make<MeatPizza>());
+    }
+
+    public void MakeVeggiePizza()
+    {
+      Pizzas.Add(_pizzaFactory.Make<VeggiePizza>()); 
+    }
+  }
 }
