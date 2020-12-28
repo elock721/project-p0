@@ -12,7 +12,7 @@ namespace PizzaWorld.Client
     private readonly ClientSingleton _client2;
 
     public Program()
-    {
+    { 
       _client2 = ClientSingleton.Instance;
     }
 
