@@ -18,6 +18,8 @@ namespace PizzaWorld.Client
 
     static void Main(string[] args)
     {
+      // Store staples = new Store(99);
+      
       UserView();
     }
 
