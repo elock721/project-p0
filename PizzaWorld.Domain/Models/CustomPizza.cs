@@ -11,11 +11,11 @@ namespace PizzaWorld.Domain.Models
             
         }
 
-        public CustomPizza(Crust crust, Size size, List<Toppings> Toppings)
+        public CustomPizza(Crust crust, Size size, List<Toppings> toppings)
         {
             this.Crust = crust;
             this.Size = size;
-            this.Toppings = Toppings; 
+            this.Toppings = toppings; 
         }
     }
 }
