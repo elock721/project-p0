@@ -5,14 +5,7 @@ namespace PizzaWorld.Domain.Models
 {
   public class Store : AEntity
   {
-    // public Store() {
-    //   this.storeId = -1;
-    // }
-
-    // public Store(int id) {
-    //   this.storeId = id;
-    // }
-    // public int storeId {get; set;}
+   public string Name { get; set; }
     public List<Order> Orders { get; set; }
 
     public void CreateOrder()
@@ -32,7 +25,12 @@ namespace PizzaWorld.Domain.Models
       {
         return false;
       }
+
     }
+    public override string ToString()
+        {
+            return $"{Name}";
+        }
   }
 }
 

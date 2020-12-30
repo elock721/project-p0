@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using PizzaWorld.Domain.Abstracts;
+using PizzaWorld.Domian.Models;
 
 namespace PizzaWorld.Domain.Models
 {
@@ -7,21 +8,20 @@ namespace PizzaWorld.Domain.Models
   {
     protected override void AddCrust()
     {
-      Crust = "regular";
+      Crust = new Crust();
     }
 
     protected override void AddSize()
     {
-      Size = "small";
+      Size = new Size();
     }
 
     protected override void AddToppings()
     {
-      // Toppings = new List<string>
-      // {
-      //   "cheese",
-      //   "tomato"
-      // };
+      Toppings = new List<Toppings>
+      {
+       
+      };
     }
   }
 }

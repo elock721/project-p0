@@ -18,9 +18,14 @@ namespace PizzaWorld.Client
 
     static void Main(string[] args)
     {
-      // Store staples = new Store(99);
-      
-      UserView();
+  
+
+      SqlClient sqlclient = new SqlClient(); 
+      var stores = sqlclient.ReadStores(); 
+      foreach (var item in stores)
+      {
+          Console.WriteLine(item);
+      }
     }
 
     static void PrintAllStores()
@@ -41,7 +46,6 @@ namespace PizzaWorld.Client
       user.SelectedStore.CreateOrder();
       user.Orders.Add(user.SelectedStore.Orders.Last());
       // while user.SelectPizza()
-      user.Orders.Last().MakeMeatPizza();
       user.Orders.Last().MakeMeatPizza();
       user.Orders.Last().MakeVeggiePizza();
 
