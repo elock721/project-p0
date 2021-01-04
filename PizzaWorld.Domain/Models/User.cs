@@ -17,14 +17,16 @@ namespace PizzaWorld.Domain.Models
 
     public override string ToString()
     {
-      var sb = new StringBuilder();
+      // var sb = new StringBuilder();
 
-      foreach (var p in Orders.Last().Pizzas)
-      {
-        sb.AppendLine(p.ToString());
-      }
+      // foreach (var p in Orders.Last().Pizzas)
+      // {
+      //   sb.AppendLine(p.ToString());
+      // }
 
-      return $"you have selected this store: {SelectedStore} and ordered these pizzas: {sb.ToString()}"; // string interpolation
+      return $"Welcome to: {SelectedStore.Name}"; 
+      
+      // {sb.ToString()}"; // string interpolation
       //return "I have selected this store: " + SelectedStore.ToString(); // string concatenation
     }
   }

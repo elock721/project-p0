@@ -24,5 +24,15 @@ namespace PizzaWorld.Domain.Models
     {
       Pizzas.Add(_pizzaFactory.Make<VeggiePizza>()); 
     }
+    // 
+     public override string ToString()
+    {
+      string output = "";
+      for (int i = 0; i < Pizzas.Count; i++)
+      {
+        output+= Pizzas[i] + "\n";          
+      } 
+      return output; 
+    }
   }
 }

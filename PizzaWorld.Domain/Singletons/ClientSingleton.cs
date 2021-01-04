@@ -40,9 +40,10 @@ namespace PizzaWorld.Domain.Singletons
 
     public Store SelectStore()
     {
-      int.TryParse(Console.ReadLine(), out int input); // 0, selection
+      string input = Console.ReadLine();
+      // int.TryParse(Console.ReadLine(), out int input); // 0, selection
 
-      return Stores.ElementAtOrDefault(input);
+      return Stores.FirstOrDefault(s => s.Name == input);
       //Stores.FirstOrDefault(s => s == input); // unique property, customer entered the right info
     }
 

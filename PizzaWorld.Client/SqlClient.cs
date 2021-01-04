@@ -27,10 +27,20 @@ namespace PizzaWorld.Client
       _db.Add(store); // git add
       _db.SaveChanges(); // git commit
     }
+    public void SaveUser(User user)
+    {
+      _db.Add(user); // git add
+      _db.SaveChanges(); // git commit
+    }
 
     public void CreateStore()
     {
       Save(new Store());
+    }
+
+    public Store FetchStore(string input)
+    {
+      return _db.Stores.FirstOrDefault(s => s.Name == input);
     }
   }
 }

@@ -20,8 +20,14 @@ namespace PizzaWorld.Domain.Models
     {
       Toppings = new List<Toppings>
       {
-
+        new Toppings("cheese", 0),
+        new Toppings("bell pepper", 0)
       };
+    }
+     public override string ToString()
+    {
+      string output = "Veggie Pizza"; 
+      return output; 
     }
   }
 }

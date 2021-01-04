@@ -9,7 +9,7 @@ namespace PizzaWorld.Domian.Models
 
          public Toppings()
          {
-
+            
          }
          public Toppings(string name, decimal price)
          {
@@ -22,6 +22,8 @@ namespace PizzaWorld.Domian.Models
         {
             return $"{Name}";
         }
+
+       
 
     }
 }
