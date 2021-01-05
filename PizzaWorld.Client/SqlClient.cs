@@ -42,5 +42,30 @@ namespace PizzaWorld.Client
     {
       return _db.Stores.FirstOrDefault(s => s.Name == input);
     }
+
+    public List<User> FetchUsers()
+    {
+      // return _db.Users.ToList();
+      var u = _db.Users.ToList(); 
+      return u; 
+
+    }
+
+    // public List<Order> FetchUserOrders(User user)
+    // {
+    //   _db.Orders.
+    // }
+
+    // public List<Order> FetchOrders()
+    // {
+    //   return _db.
+    // }
+
+    // Save Order to order table 
+    public void SaveOrder(Order order)
+    {
+      _db.Add(order); 
+      _db.SaveChanges();
+    }
   }
 }

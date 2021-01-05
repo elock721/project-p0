@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PizzaWorld.Storing;
 
 namespace PizzaWorld.Storage.Migrations
 {
     [DbContext(typeof(PizzaWorldContext))]
-    partial class PizzaWorldContextModelSnapshot : ModelSnapshot
+    [Migration("20210105033756_updateuser")]
+    partial class updateuser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -61,7 +63,7 @@ namespace PizzaWorld.Storage.Migrations
 
                     b.HasIndex("UserEntityId");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Order");
                 });
 
             modelBuilder.Entity("PizzaWorld.Domain.Models.Store", b =>
@@ -79,12 +81,12 @@ namespace PizzaWorld.Storage.Migrations
                     b.HasData(
                         new
                         {
-                            EntityId = new Guid("71b4cba6-cd12-429c-b0e9-085c6711f258"),
+                            EntityId = new Guid("9183b298-a336-4fd6-a507-9599256e885d"),
                             Name = "Home Slice"
                         },
                         new
                         {
-                            EntityId = new Guid("a5713a92-fe9c-4874-b6d8-a0e618fecdd7"),
+                            EntityId = new Guid("8cb4f5b2-fd1b-4be1-818c-dd4c6e7bb550"),
                             Name = "Pinthouse Pizza Co"
                         });
                 });
@@ -117,24 +119,24 @@ namespace PizzaWorld.Storage.Migrations
 
                     b.HasKey("EntityId");
 
-                    b.ToTable("Crusts");
+                    b.ToTable("Crust");
 
                     b.HasData(
                         new
                         {
-                            EntityId = new Guid("ed4beb48-c69a-42d5-a4db-806f910bc0c9"),
+                            EntityId = new Guid("07e04c45-b87c-4999-b764-18435ef3e32e"),
                             Name = "Brooklyn",
                             Price = 2m
                         },
                         new
                         {
-                            EntityId = new Guid("b9b40d2b-1478-4337-b20e-a0018fe56e8b"),
+                            EntityId = new Guid("2471c503-01bf-4c26-8ea4-89351fba9d73"),
                             Name = "Deep Dish",
                             Price = 3m
                         },
                         new
                         {
-                            EntityId = new Guid("dc13f602-38d0-4ecd-a223-8e22fd3b7b9f"),
+                            EntityId = new Guid("d5ea8184-2bb7-4e21-84ac-0c6524ac6fe3"),
                             Name = "Hand Tossed",
                             Price = 1m
                         });
@@ -153,24 +155,24 @@ namespace PizzaWorld.Storage.Migrations
 
                     b.HasKey("EntityId");
 
-                    b.ToTable("Sizes");
+                    b.ToTable("Size");
 
                     b.HasData(
                         new
                         {
-                            EntityId = new Guid("62582259-5239-4037-b33f-17e7b373a71a"),
+                            EntityId = new Guid("91418252-112e-4b0e-9a6b-1f224aac4bc0"),
                             Name = "Large",
                             Price = 15m
                         },
                         new
                         {
-                            EntityId = new Guid("00e502b6-23dd-495f-aea7-39b145339fa2"),
+                            EntityId = new Guid("5da2279b-00b7-4203-af9b-2f3cdf3eaa95"),
                             Name = "Medium",
                             Price = 12m
                         },
                         new
                         {
-                            EntityId = new Guid("d544eb31-8d2a-42db-877a-6dbed1bbebb9"),
+                            EntityId = new Guid("871f9043-2c13-423b-ae33-8c5ebd39dc96"),
                             Name = "Small",
                             Price = 9m
                         });
@@ -199,31 +201,31 @@ namespace PizzaWorld.Storage.Migrations
                     b.HasData(
                         new
                         {
-                            EntityId = new Guid("6fd80b32-084b-463e-a595-3a0e7a124df8"),
+                            EntityId = new Guid("a3d08d54-7afa-4228-b63a-547e9e352169"),
                             Name = "Cheese",
                             Price = 0m
                         },
                         new
                         {
-                            EntityId = new Guid("8e94d8d3-dbd9-4a26-9434-4dc9b71010d4"),
+                            EntityId = new Guid("51c0397a-3342-4f69-935c-cb2ebfc462bb"),
                             Name = "Pepperoni",
                             Price = 1m
                         },
                         new
                         {
-                            EntityId = new Guid("619b994d-2a2f-4464-b6db-a6c41b0f03b3"),
+                            EntityId = new Guid("2361c73f-9c5e-4439-9337-56b3f1e02c8a"),
                             Name = "Pineapple",
                             Price = 1m
                         },
                         new
                         {
-                            EntityId = new Guid("519311e3-6934-4d13-b9c7-1236ad973f7e"),
+                            EntityId = new Guid("70b63315-ab14-4592-a5a9-afe873e1a79a"),
                             Name = "Bell Pepper",
                             Price = 1m
                         },
                         new
                         {
-                            EntityId = new Guid("f3a20af7-4d0a-4d33-a391-a0d614aa7f32"),
+                            EntityId = new Guid("ac9fc7ab-d18d-4c76-bc00-816efdfbad22"),
                             Name = "Bacon",
                             Price = 2m
                         });

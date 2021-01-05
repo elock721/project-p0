@@ -28,6 +28,9 @@ namespace PizzaWorld.Client
 
         static void PrintAllStores()
         {
+
+            Console.WriteLine(" * * WELCOME TO THE PIZZA CONSOLE 5000 * * \n *  PLEASE SELECT A PIZZA STORE  *");
+            
             foreach (var store in sqlclient.ReadStores())
             {
                 System.Console.WriteLine(store.Name);
@@ -36,7 +39,7 @@ namespace PizzaWorld.Client
 
         static void AddToOrder(Order order)
         {
-          Console.WriteLine("select 1 for veggie pizza or 2 for meat pizza, 99 when done");
+          Console.WriteLine("For Veggie Pizza: Select 1 \nFor Meat Pizza: Select 2 \nWhen Finished: Select 99");
             // convert int into 
             int selection = int.Parse(Console.ReadLine());
             
@@ -47,17 +50,32 @@ namespace PizzaWorld.Client
                     // making new veggie pizza
                     order.MakeVeggiePizza();
                 }
-                else
+                else 
                 {
                     order.MakeMeatPizza();
                 }
-                Console.WriteLine("select 1 for veggie pizza or 2 for meat pizza, 99 when done");
+                Console.WriteLine("For Veggie Pizza: Select 1 \nFor Meat Pizza: Select 2 \nWhen Finished: Select 99");
                 selection = int.Parse(Console.ReadLine());
             }
         }
 
+        static void RemovePizza(User user) 
+        {
+            var pizzas = user.Orders.Last().Pizzas;
+            // pizzas.RemoveAt();
+        }
+
         static void UserView()
         {
+
+            List<User> users = sqlclient.FetchUsers();  
+
+            for (int i = 0; i < users.Count; i++)
+            {
+                Console.WriteLine("Order Count: " + users[i].Orders.Count); 
+            }
+
+
             var user = new User();
 
             PrintAllStores();
@@ -91,15 +109,33 @@ namespace PizzaWorld.Client
                     AddToOrder(user.Orders.Last());
                     Console.WriteLine(user.Orders.Count);
                 }
+                if (response == "R")
+                {
+                    
+                }
                 Console.WriteLine("Press 'A' to add Pizzas, 'R' to remove Pizzas or 'Enter' to finish order");
                 response = Console.ReadLine();
-
             }
-            Console.WriteLine("Your current order: ");
+
+             Console.WriteLine("Your current order: ");
+
+
+            //  sqlclient.SaveOrder(user.Orders.Last());
+
+            // establishing ability to read and write to DB
+             sqlclient.SaveUser(user);
+            
             for (int i = 0; i < user.Orders.Count; i++)
             {
                 Console.WriteLine(user.Orders[i]);
             };
+
+            // print out all orders 
+            // Console.WriteLine(users.Last().Orders.Last());
+            
+            
+            
+            
             // user.SelectedStore = _client.SelectStore();
             // user.SelectedStore.CreateOrder();
             // user.Orders.Add(user.SelectedStore.Orders.Last());

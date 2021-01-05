@@ -10,6 +10,13 @@ namespace PizzaWorld.Storing
   {
     public DbSet<Store> Stores { get; set; }
     public DbSet<User> Users { get; set; }
+    // public DbSet<Order> Orders { get; set; }
+    // public DbSet<Toppings> Toppings { get; set; }
+    // public DbSet<Crust> Crusts { get; set; }
+    // public DbSet<Size> Sizes { get; set; }
+
+    
+
 
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
     {
@@ -42,7 +49,7 @@ namespace PizzaWorld.Storing
       builder.Entity<Store>().HasData(new List<Store>
         {
           new Store() {Name = "Home Slice"},
-          new Store() {Name = "Pinthouse Pizza Co" }
+          new Store() {Name = "Pinthouse Pizza Co"}
         }
       );
       builder.Entity<Size>().HasData(new List<Size>
