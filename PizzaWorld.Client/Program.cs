@@ -59,21 +59,23 @@ namespace PizzaWorld.Client
             }
         }
 
-        static void RemovePizza(User user) 
+        static void RemovePizza(User user, int index) 
         {
-            var pizzas = user.Orders.Last().Pizzas;
-            // pizzas.RemoveAt();
+            if (index < user.Orders.Last().Pizzas.Count())
+            {
+            user.Orders.Last().Pizzas.RemoveAt(index);
+            }
         }
 
         static void UserView()
         {
 
-            List<User> users = sqlclient.FetchUsers();  
+            // List<User> users = sqlclient.FetchUsers();  
 
-            for (int i = 0; i < users.Count; i++)
-            {
-                Console.WriteLine("Order Count: " + users[i].Orders.Count); 
-            }
+            // for (int i = 0; i < users.Count; i++)
+            // {
+            //     Console.WriteLine("Order Count: " + users[i].Orders.Count); 
+            // }
 
 
             var user = new User();
@@ -111,7 +113,12 @@ namespace PizzaWorld.Client
                 }
                 if (response == "R")
                 {
-                    
+                    int NumOrders = user.Orders.Last().Pizzas.Count()-1;
+                    Console.WriteLine("Please enter index to remove (a number between 0 and " + NumOrders.ToString()+ ")");
+                    // Console.WriteLine("Please enter index to remove starting at 0");
+                    response = Console.ReadLine();
+                    int index = Convert.ToInt16(response); 
+                    RemovePizza(user, index);
                 }
                 Console.WriteLine("Press 'A' to add Pizzas, 'R' to remove Pizzas or 'Enter' to finish order");
                 response = Console.ReadLine();
